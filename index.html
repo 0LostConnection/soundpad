@@ -33,7 +33,7 @@
 
         .button-container {
             margin: 0 auto;
-            width: 500px;
+            width: 700px;
             text-align: center;
             background: rgba(0, 0, 0, 0.25);
             padding: 20px 0;
@@ -43,8 +43,8 @@
         }
 
         button.button {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             margin: 5px;
             vertical-align: top;
             border: 3px solid rgba(255, 255, 255, 0.5);
@@ -89,22 +89,22 @@
 
 <body>
     <div class="button-container">
-        <button data-src="nuclear-alarm" class="button">bomba</button>
-        <button data-src="applause" class="button">clap</button>
-        <button data-src="drum-roll" class="button">drum roll</button>
-        <button data-src="joke-drum" class="button">joke drum</button>
-        <button data-src="sad-trumpet" class="button">fail</button>
-        <button data-src="crowd-laugh" class="button">crowd laugh</button>
-        <button data-src="evil-laugh" class="button">evil laugh</button>
-        <button data-src="hadouken" class="button">hadouken</button>
-        <button data-src="shoryuken" class="button">shoryuken</button>
-        <button data-src="wtf" class="button">wtf</button>
-        <button data-src="phone" class="button">phone</button>
-        <button data-src="thunder" class="button">thunder</button>
-        <button data-src="coso.mp3" class="button">12</button>
-        <button data-src="coso.mp3" class="button">13</button>
-        <button data-src="coso.mp3" class="button">14</button>
-        <button data-src="coso.mp3" class="button">15</button>
+        <button data-src="msc_danca" class="button">Música (C3)</button>
+        <button data-src="tocktock" class="button">Tock (C5)</button>
+        <button data-src=""class="button">Música (C5)</button>
+        <button data-src="" class="button">Voz (C5)</button>
+        <button data-src=""class="button">Música (C7)</button>
+        <button data-src=""class="button">Campainha (C8)</button>
+        <button data-src="tocktock" class="button">Tock (C9)</button>
+        <button data-src="" class="button">Música (C10)</button>
+        <button data-src="telefone" class="button">Telefone (C11)</button>
+        <button data-src="" class="button">Música (C11)</button>
+        <button data-src="telefone" class="button">Telefone (C12)</button>
+        <button data-src="tiro" class="button">Tiro (C14)</button>
+        <button data-src="tiro" class="button">Tiro (C15)</button>
+        <button data-src="btb" class="button">Música (C15)</button>
+        <button data-src="" class="button"></button>
+        <button data-src="" class="button"></button>
     </div>
 
     <!--
@@ -112,7 +112,7 @@
     <textarea rows="3" cols="10" id="google-text"></textarea>
     <button id="send-google">Play Google</button>
     -->
-    <br/>
+    
 
     <center>
         <button id="stop">STOP</button>
@@ -149,7 +149,7 @@
             for(var i = 0; i < buttons.length - 1; i++) {
                 console.log(buttons[i].getAttribute('data-src'));
                 buttons[i].addEventListener('click', function () {
-                    socket.emit('play-audio', '/assets/sounds/' + this.getAttribute('data-src') + '.mp3');
+                    socket.emit('play-audio', '/assets/sounds/' + this.getAttribute('data-src') + '.wav');
                 });
             }
         });
