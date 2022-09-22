@@ -1,18 +1,8 @@
-# OBS Sound Pad
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Schrodinger-Hat/obs-sound-pad/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/0LostConnection/soundpad)
 
 <p align="center">
   <img width="500" src="https://raw.githubusercontent.com/Schrodinger-Hat/soundpad/master/resources/pad.png" />
 </p>
-
-## Why
-
-We run a [live and podcast](https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA) setup on OBS and we wanted to make a tv/radio show with some sound fx.
-
-We usually use Google Meet, because we do not have a studio, and the requirements was that the sound should be hear from me, from the othere guys in meet and from the live stream.
-
-And here it comes the socket.io library with some custom effects.
 
 ## How it works
 
@@ -33,10 +23,6 @@ Visit: `localhost:3000`
 
 Yay.
 
-## Resources
-
-[Freesound](https://freesound.org/)
-
-## Authors
+## Original Authors
 
 [thejoin](https://github.com/thejoin95) & [wabri](https://github.com/wabri)
