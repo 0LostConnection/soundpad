@@ -1,5 +1,5 @@
 {
-  "name": "obs-sound-pad",
+  "name": "soundpad-teatro",
   "version": "1.0.0",
   "description": "[Freesound](https://github.com/Schrodinger-Hat/obs-sound-pad.git)",
   "main": "index.js",
@@ -11,14 +11,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Schrodinger-Hat/obs-sound-pad.git"
-  },
-  "author": "thejoin95",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Schrodinger-Hat/obs-sound-pad/issues"
-  },
-  "homepage": "https://github.com/Schrodinger-Hat/obs-sound-pad#readme"
+  "author": "LostConnection",
+  "license": "ISC"
 }
