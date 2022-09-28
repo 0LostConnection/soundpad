@@ -1,101 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Schrodinger Hat - OBS sound pad</title>
+    <title>Soundpad Teatro</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-
-            background-size: cover;
-            margin: 0;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-            color: #fff;
-        }
-
-        h1 {
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            background: rgba(0, 0, 0, 0.25);
-            margin: 0 0 1em 0;
-            display: inline-block;
-        }
-
-        h2 {
-            text-align: center;
-            color: #fff;
-            font-size: 1.2em;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-        }
-
-        .button-container {
-            margin: 0 auto;
-            width: 700px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.25);
-            padding: 20px 0;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        button.button {
-            width: 150px;
-            height: 150px;
-            margin: 5px;
-            vertical-align: top;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            background: rgba(247, 28, 64, 0.6);
-            color: #fff;
-            font-size: 1.5em;
-            border-radius: 5px;
-            box-shadow: 1px 1px 2px rgba(144, 116, 137, 0.6);
-        }
-
-        button.button:hover {
-            background: rgba(101, 188, 190, 0.64);
-            border: 3px solid #ccc;
-            transition: background 0.2s ease-in-out, border 0.2s linear;
-            color: #fff;
-            box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54);
-            cursor: pointer;
-        }
-
-        #stop {
-            width: 100px;
-            height: 100px;
-            margin: 5px;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            background: rgb(255, 0, 43);
-            color: #fff;
-            font-size: 2em;
-            border-radius: 5px;
-            box-shadow: 1px 1px 2px rgba(144, 116, 137, 0.6);
-        }
-
-        #stop:hover {
-            background: rgba(101, 188, 190, 0.64);
-            border: 3px solid #ccc;
-            transition: background 0.2s ease-in-out, border 0.2s linear;
-            color: #fff;
-            box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54);
-            cursor: pointer; 
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="button-container">
         <button data-src="msc_danca" class="button">Música (C3)</button>
+        <button data-src="msc_cartomante" class="button">Música (C4)</button>
         <button data-src="tocktock" class="button">Tock (C5)</button>
-        <button data-src="msc_triste"class="button">Música (C5)</button>
+        <button data-src="msc_triste" class="button">Música (C5)</button>
         <button data-src="" class="button">Voz (C5)*</button>
-        <button data-src="msc_triste"class="button">Música (C7)</button>
-        <button data-src="campainha"class="button">Campainha (C8)</button>
+        <button data-src="msc_triste" class="button">Música (C7)</button>
+        <button data-src="campainha" class="button">Campainha (C8)</button>
         <button data-src="tocktock" class="button">Tock (C9)</button>
+        <button data-src="msc_confissao" class="button">Música (C9)</button>
         <button data-src="msc_misterio" class="button">Música (C10)</button>
         <button data-src="telefone" class="button">Telefone (C11)</button>
         <button data-src="" class="button">Música (C11)*</button>
@@ -105,55 +29,15 @@
         <button data-src="msc_artur" class="button">Música (C15)</button>
         <button data-src="" class="button"></button>
         <button data-src="" class="button"></button>
+        <button data-src="" class="button"></button>
+        <button data-src="" class="button"></button>
     </div>
 
-    <!--
-    <br />
-    <textarea rows="3" cols="10" id="google-text"></textarea>
-    <button id="send-google">Play Google</button>
-    -->
-    x
-
     <center>
-        <button id="stop">STOP</button>
+        <button id="stop" onclick="audioControl('stop')">STOP</button>
     </center>
 
-    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            var audio = new Audio();
-            var socket = io();
-
-            socket.on('play-audio', function (src) {
-                console.log("arrivato: " + src);
-                audio.src = src;
-                audio.pause();
-                audio.play();
-            });
-
-            socket.on('stop-audio', function () {
-                audio.pause();
-            });
-
-            document.getElementById('stop').addEventListener('click', function () {
-                socket.emit('stop-audio');
-            });
-
-            // da capire come farlo funzionare nel caso
-            /*document.getElementById('send-google').addEventListener('click', function () {
-                var text = encodeURIComponent(document.getElementById('google-text').value);
-                socket.emit('play-audio', 'https://translate.google.com/translate_tts?ie=UTF-8&q='+ text +'&tl=it-IT&client=tw-ob')
-            });*/
-
-            var buttons = document.querySelectorAll('.button');
-            for(var i = 0; i < buttons.length - 1; i++) {
-                console.log(buttons[i].getAttribute('data-src'));
-                buttons[i].addEventListener('click', function () {
-                    socket.emit('play-audio', '/assets/sounds/' + this.getAttribute('data-src') + '.wav');
-                });
-            }
-        });
-    </script>
+    <script src='js/index.js'></script>
 </body>
 
 </html>
