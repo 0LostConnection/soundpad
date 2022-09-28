@@ -3,88 +3,10 @@
 
 <head>
     <title>Soundpad Teatro</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-
-            background-size: cover;
-            margin: 0;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-            color: #fff;
-        }
-
-        h1 {
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            background: rgba(0, 0, 0, 0.25);
-            margin: 0 0 1em 0;
-            display: inline-block;
-        }
-
-        h2 {
-            text-align: center;
-            color: #fff;
-            font-size: 1.2em;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-        }
-
-        .button-container {
-            margin: 0 auto;
-            width: 700px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.25);
-            padding: 20px 0;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        button.button {
-            width: 150px;
-            height: 150px;
-            margin: 5px;
-            vertical-align: top;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            background: rgba(247, 28, 64, 0.6);
-            color: #fff;
-            font-size: 1.5em;
-            border-radius: 5px;
-            box-shadow: 1px 1px 2px rgba(144, 116, 137, 0.6);
-        }
-
-        button.button:hover {
-            background: rgba(101, 188, 190, 0.64);
-            border: 3px solid #ccc;
-            transition: background 0.2s ease-in-out, border 0.2s linear;
-            color: #fff;
-            box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54);
-            cursor: pointer;
-        }
-
-        #stop {
-            width: 100px;
-            height: 100px;
-            margin: 5px;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            background: rgb(255, 0, 43);
-            color: #fff;
-            font-size: 2em;
-            border-radius: 5px;
-            box-shadow: 1px 1px 2px rgba(144, 116, 137, 0.6);
-        }
-
-        #stop:hover {
-            background: rgba(101, 188, 190, 0.64);
-            border: 3px solid #ccc;
-            transition: background 0.2s ease-in-out, border 0.2s linear;
-            color: #fff;
-            box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54);
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -105,55 +27,17 @@
         <button data-src="tiro" class="button">Tiro (C14)</button>
         <button data-src="tiro" class="button">Tiro (C15)</button>
         <button data-src="msc_artur" class="button">Música (C15)</button>
-        <button data-src="tiro" class="button"></button>
-        <button data-src="tiro" class="button"></button>
-        <button data-src="tiro" class="button"></button>
-        <button data-src="tiro" class="button">tiro</button>
+        <button data-src="" class="button"></button>
+        <button data-src="" class="button"></button>
+        <button data-src="" class="button"></button>
+        <button data-src="" class="button"></button>
     </div>
 
     <center>
-        <button id="stop">STOP</button>
+        <button id="stop" onclick="audioControl('stop')">STOP</button>
     </center>
 
-    <script>
-
-        const audio = new Audio();
-        const play_audio = function (src) {
-            audio.src = src;
-            audio.pause();
-            audio.play()
-        }
-
-        const stop_audio = function () {
-            audio.pause();
-        }
-
-        const preload_audio = function (src) {
-            audio.src = src;
-            audio.preload;
-        }
-
-        window.addEventListener('DOMContentLoaded', function () {
-            var buttons = document.querySelectorAll('.button');
-
-            for (var i = 0; i < buttons.length; i++) {
-                preload_audio('/assets/sounds/' + buttons[i].getAttribute('data-src') + '.wav')
-            }
-
-            document.getElementById('stop').addEventListener('click', function () {
-                stop_audio()
-                console.log('Stop')
-            });
-
-            for (var i = 0; i < buttons.length; i++) {
-                console.log(buttons[i].getAttribute('data-src'));
-                buttons[i].addEventListener('click', function () {
-                    play_audio('/assets/sounds/' + this.getAttribute('data-src') + '.wav');
-                });
-            }
-        });
-
-    </script>
+    <script src='js/index.js'></script>
 </body>
 
 </html>

@@ -1,12 +1,10 @@
 {
   "name": "Soundpad Teatro",
-  "description": "A sound pad to bring the sound fx on the live stream",
+  "description": "Sounpad criado para utilizar na sonoplastia da peça de teatro da turma do 2ºA.",
   "repository": "hhttps://github.com/0LostConnection/soundpad",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": [
     "node",
-    "express",
-    "static",
-    "socketio"
+    "express"
   ]
 }
