@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -115,64 +115,44 @@
         <button id="stop">STOP</button>
     </center>
 
-    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
     <script>
 
-        const audio = new Audio(src);
-        const play_audio = function () {
+        const audio = new Audio();
+        const play_audio = function (src) {
             audio.src = src;
             audio.pause();
-            audio.play
+            audio.play()
         }
 
         const stop_audio = function () {
             audio.pause();
         }
 
+        const preload_audio = function (src) {
+            audio.src = src;
+            audio.preload;
+        }
+
         window.addEventListener('DOMContentLoaded', function () {
+            var buttons = document.querySelectorAll('.button');
+
+            for (var i = 0; i < buttons.length; i++) {
+                preload_audio('/assets/sounds/' + buttons[i].getAttribute('data-src') + '.wav')
+            }
 
             document.getElementById('stop').addEventListener('click', function () {
                 stop_audio()
                 console.log('Stop')
             });
 
-            var buttons = document.querySelectorAll('.button');
-            for (var i = 0; i < buttons.length - 1; i++) {
+            for (var i = 0; i < buttons.length; i++) {
                 console.log(buttons[i].getAttribute('data-src'));
                 buttons[i].addEventListener('click', function () {
-                    play_audio('/assets/sounds/' + this.getAttribute('data-src') + '.wav')
+                    play_audio('/assets/sounds/' + this.getAttribute('data-src') + '.wav');
                 });
             }
         });
 
-        /* window.addEventListener('DOMContentLoaded', function () {
-            var audio = new Audio();
-            var socket = io();
-
-
-            socket.on('play-audio', function (src) {
-                console.log("arrivato: " + src);
-                audio.src = src;
-                audio.pause();
-                audio.play();
-            });
-
-            socket.on('stop-audio', function () {
-                audio.pause();
-            });
-
-            document.getElementById('stop').addEventListener('click', function () {
-                socket.emit('stop-audio');
-            });
-
-            var buttons = document.querySelectorAll('.button');
-            for (var i = 0; i < buttons.length - 1; i++) {
-                console.log(buttons[i].getAttribute('data-src'));
-                buttons[i].addEventListener('click', function () {
-                    socket.emit('play-audio', '/assets/sounds/' + this.getAttribute('data-src') + '.wav');
-                });
-            }
-        }); */
     </script>
 </body>
 
