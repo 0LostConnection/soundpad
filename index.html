@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Schrodinger Hat - OBS sound pad</title>
+    <title>Soundpad Teatro</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -82,7 +82,7 @@
             transition: background 0.2s ease-in-out, border 0.2s linear;
             color: #fff;
             box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54);
-            cursor: pointer; 
+            cursor: pointer;
         }
     </style>
 </head>
@@ -90,12 +90,14 @@
 <body>
     <div class="button-container">
         <button data-src="msc_danca" class="button">Música (C3)</button>
+        <button data-src="msc_cartomante" class="button">Música (C4)</button>
         <button data-src="tocktock" class="button">Tock (C5)</button>
-        <button data-src="msc_triste"class="button">Música (C5)</button>
+        <button data-src="msc_triste" class="button">Música (C5)</button>
         <button data-src="" class="button">Voz (C5)*</button>
-        <button data-src="msc_triste"class="button">Música (C7)</button>
-        <button data-src="campainha"class="button">Campainha (C8)</button>
+        <button data-src="msc_triste" class="button">Música (C7)</button>
+        <button data-src="campainha" class="button">Campainha (C8)</button>
         <button data-src="tocktock" class="button">Tock (C9)</button>
+        <button data-src="msc_confissao" class="button">Música (C9)</button>
         <button data-src="msc_misterio" class="button">Música (C10)</button>
         <button data-src="telefone" class="button">Telefone (C11)</button>
         <button data-src="" class="button">Música (C11)*</button>
@@ -103,16 +105,11 @@
         <button data-src="tiro" class="button">Tiro (C14)</button>
         <button data-src="tiro" class="button">Tiro (C15)</button>
         <button data-src="msc_artur" class="button">Música (C15)</button>
-        <button data-src="" class="button"></button>
-        <button data-src="" class="button"></button>
+        <button data-src="tiro" class="button"></button>
+        <button data-src="tiro" class="button"></button>
+        <button data-src="tiro" class="button"></button>
+        <button data-src="tiro" class="button">tiro</button>
     </div>
-
-    <!--
-    <br />
-    <textarea rows="3" cols="10" id="google-text"></textarea>
-    <button id="send-google">Play Google</button>
-    -->
-    x
 
     <center>
         <button id="stop">STOP</button>
@@ -120,9 +117,38 @@
 
     <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
     <script>
+
+        const audio = new Audio(src);
+        const play_audio = function () {
+            audio.src = src;
+            audio.pause();
+            audio.play
+        }
+
+        const stop_audio = function () {
+            audio.pause();
+        }
+
         window.addEventListener('DOMContentLoaded', function () {
+
+            document.getElementById('stop').addEventListener('click', function () {
+                stop_audio()
+                console.log('Stop')
+            });
+
+            var buttons = document.querySelectorAll('.button');
+            for (var i = 0; i < buttons.length - 1; i++) {
+                console.log(buttons[i].getAttribute('data-src'));
+                buttons[i].addEventListener('click', function () {
+                    play_audio('/assets/sounds/' + this.getAttribute('data-src') + '.wav')
+                });
+            }
+        });
+
+        /* window.addEventListener('DOMContentLoaded', function () {
             var audio = new Audio();
             var socket = io();
+
 
             socket.on('play-audio', function (src) {
                 console.log("arrivato: " + src);
@@ -139,20 +165,14 @@
                 socket.emit('stop-audio');
             });
 
-            // da capire come farlo funzionare nel caso
-            /*document.getElementById('send-google').addEventListener('click', function () {
-                var text = encodeURIComponent(document.getElementById('google-text').value);
-                socket.emit('play-audio', 'https://translate.google.com/translate_tts?ie=UTF-8&q='+ text +'&tl=it-IT&client=tw-ob')
-            });*/
-
             var buttons = document.querySelectorAll('.button');
-            for(var i = 0; i < buttons.length - 1; i++) {
+            for (var i = 0; i < buttons.length - 1; i++) {
                 console.log(buttons[i].getAttribute('data-src'));
                 buttons[i].addEventListener('click', function () {
                     socket.emit('play-audio', '/assets/sounds/' + this.getAttribute('data-src') + '.wav');
                 });
             }
-        });
+        }); */
     </script>
 </body>
 
