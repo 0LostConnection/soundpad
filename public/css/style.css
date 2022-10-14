@@ -3,18 +3,19 @@ body {
     background-size: cover;
     margin: 0;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    background-color: #21273b;
 }
 
 .button-container {
     margin: 0 auto;
-    width: 1000px;
+    width: 1050px;
     text-align: center;
     background: rgba(0, 0, 0, 0.25);
     padding: 20px 0;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid #F5EE9E;
     border-radius: 6px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 8px #F5EE9E;
+    transition: all 0.2s ease-in-out; 
 }
 
 button.button {
@@ -22,29 +23,30 @@ button.button {
     height: 150px;
     margin: 5px;
     vertical-align: top;
-    border: 3px solid rgba(255, 255, 255, 0.5);
-    background: rgba(247, 28, 64, 0.6);
+    border: 1px solid #F5EE9E;
+    background: #2C344E;
     color: #fff;
     font-size: 1.5em;
     border-radius: 5px;
-    box-shadow: 1px 1px 2px rgba(144, 116, 137, 0.6);
 }
 
 button.button:hover {
-    background: rgba(101, 188, 190, 0.64);
+    background: #8075FF;
     border: 3px solid #ccc;
-    transition: background 0.2s ease-in-out, border 0.2s linear;
+    transition: all 0.2s ease-in-out, border 0.2s linear;
     color: #fff;
-    box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54);
+    /* box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54); */
+    box-shadow: 0px 0px 10px #F5EE9E;
     cursor: pointer;
+    transform: scale(1.1); 
 }
 
 #stop {
     width: 100px;
     height: 100px;
-    margin: 5px;
+    margin: 30px;
     border: 3px solid rgba(255, 255, 255, 0.5);
-    background: rgb(255, 0, 43);
+    background: #CE4257;
     color: #fff;
     font-size: 2em;
     border-radius: 5px;
@@ -52,10 +54,11 @@ button.button:hover {
 }
 
 #stop:hover {
-    background: rgba(101, 188, 190, 0.64);
+    background: #D25366;
     border: 3px solid #ccc;
-    transition: background 0.2s ease-in-out, border 0.2s linear;
+    transition: all 0.2s ease-in-out, border 0.2s linear;
     color: #fff;
     box-shadow: 2px 2px 9px rgba(222, 211, 219, 0.54);
     cursor: pointer;
+    transform: scale(1.1); 
 }
