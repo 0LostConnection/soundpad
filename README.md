@@ -5,5 +5,7 @@ Aplicativo feito para ajudar a equipe de sonoplastia a reproduzir efeitos sonoro
 
 Application made to help the sound design team to reproduce sound effects and music in the school play.
 
+![Image](https://raw.githubusercontent.com/0LostConnection/soundpad/master/public/assets/images/image.png)
+
 ## Autores Originais
 [Schrödinger Hat](https://github.com/Schrodinger-Hat) & [thejoin](https://github.com/thejoin95) & [wabri](https://github.com/wabri)
