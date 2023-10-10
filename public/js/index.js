@@ -1,4 +1,5 @@
-const audio = new Audio();
+let audio = new Audio();
+
 const audioControl = function (command, src) {
     switch (command) {
         case 'play':
@@ -18,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var buttons = document.querySelectorAll('.button')
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function () {
-            audioControl('play', `assets/sounds/${this.getAttribute('data-src')}.wav`)
+            audioControl('play', `assets/sounds/${this.getAttribute('data-src')}.mp3`)
         })
     }
 })
